@@ -1,0 +1,5 @@
+torch==2.2.0+cu121
+datasets==2.16.1
+scikit-learn==1.4.0
+pandas==2.2.0
+seaborn==0.13.2
