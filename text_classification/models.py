@@ -2,13 +2,14 @@ import copy
 
 import torch
 from torch import nn
-from torch.optim import Optimizer, Adam
+from torch.optim import Optimizer, AdamW
 from torch.utils.data import DataLoader
 
 from sklearn.metrics import accuracy_score, recall_score, precision_score, f1_score
 
 
 class TextClassificationLSTM(nn.Module):
+    """A LSTM model for text classification."""
 
     def __init__(
         self,
@@ -50,7 +51,7 @@ class TextClassificationLSTM(nn.Module):
         num_epochs: int = 50,
         patience: int = 5,
     ) -> list[dict]:
-        optimizer = Adam(self.parameters(), learning_rate)
+        optimizer = AdamW(self.parameters(), learning_rate)
         best_score = float("-inf")
         best_model_params = copy.deepcopy(self.state_dict())
         current_patience = 0
